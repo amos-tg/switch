@@ -8,7 +8,16 @@
     
     About:
 
-    This program is a simple systemd based timed gpio switch. This program only works for Rasberry Pis; See rppal rust crate on docs.rs for specifics. I plan on adding more configuration options as the program matures. Adding support for mathematical expressions on the multiplier seems important; It is not presently possible to accurately represent certain units which the user may want to express in their time actuated for Multiplier configuration option, for example, if you want to accurately represent fluid oz's based on how long a water pump is turned on for, you would not be able to do so with just float multiplication. I will likely invest time in making a GUI applet which can be run on linux and maybe android mobile devices for the purpose of controlling this program. Due to the reliance on systemd and the defaults which are currently in place this program requires superuser privledges. 
+    This program is a simple systemd based timed gpio switch. This program only works for Rasberry 
+    Pis; See rppal rust crate on docs.rs for specifics. I plan on adding more configuration options
+    as the program matures. Adding support for mathematical expressions on the multiplier seems 
+    important; It is not presently possible to accurately represent certain units which the user may
+    want to express in their time actuated for Multiplier configuration option, for example, if you 
+    want to accurately represent fluid oz's based on how long a water pump is turned on for, you would
+    not be able to do so with just float multiplication. I will likely invest time in making a GUI
+    applet which can be run on linux and maybe android mobile devices for the purpose of controlling
+    this program. Due to the reliance on systemd and the defaults which are currently in place this 
+    program requires superuser privledges. 
 
     Configuration:
         
