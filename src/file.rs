@@ -95,7 +95,7 @@ OnCalendar={time}
 WakeSystem=true
 Unit={IDENTIFIER}_{prof}.service
 [Unit]
-Description=Times Actuations via gpio pins for the actuator program! 
+Description=Times actuations via systemd for gpio pins for the switch program.
 [Install]
 WantedBy=timers.target"#
     );
@@ -105,9 +105,9 @@ WantedBy=timers.target"#
     let service_path = format!("{SYSTEMD_DIR}/{IDENTIFIER}_{prof}.service");
     let service_cont = format!(
 r#"[Service]
-ExecStart=+/usr/local/bin/actuator --exec {prof} {time_on}
+ExecStart=+/usr/local/bin/switch --exec {prof} {time_on}
 [Unit]
-Description=Actuates gpio pins for the actautor program!"#
+Description=actuates gpio pins for the switch program"#
     );
 
 

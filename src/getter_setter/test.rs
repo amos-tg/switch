@@ -32,16 +32,12 @@ fn unlazy_skip(
 fn full_config_new() -> Result<(), DynError> {
     file::init_dirs(TEST)?;
 
-    dbg!("made it to Self::set");
-
     RelayCount::set(String::from("120000"), TEST)?;
     RelayMax::set(String::from("140000"), TEST)?;
     MaxTime::set(String::from("50"), TEST)?;
     GpioPin::set(String::from("8"), TEST)?;
     Timezone::set(String::from("America/New_York"), TEST)?;
     Multiplier::set(String::from("2.31"), TEST)?;
-
-    dbg!("made it past the set fns");
 
     assert_eq!(
         FullConfig::new(TEST)?,

@@ -42,21 +42,21 @@ impl OsStringToUtf8Error {
     }                                                            
 }                                                                
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")]
-pub struct ValidityError {
-    msg: String,
-    backtrace: Backtrace,
-}
-
-impl ValidityError {
-    pub fn new(custom: &str) -> Self {
-        Self { 
-            msg: format!("ValidityError! failed validity check in config setter: {custom}"),
-            backtrace: Backtrace::capture(),
-        }
-    }
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")]
+//pub struct ValidityError {
+//    msg: String,
+//    backtrace: Backtrace,
+//}
+//
+//impl ValidityError {
+//    pub fn new(custom: &str) -> Self {
+//        Self { 
+//            msg: format!("ValidityError! failed validity check in config setter: {custom}"),
+//            backtrace: Backtrace::capture(),
+//        }
+//    }
+//}
 
 #[derive(Debug, Error)]                                          
 #[error("{msg}\nBacktrace:\n{backtrace}")]                       
@@ -91,110 +91,110 @@ impl MalformedLogError {
     }
 }
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")]
-pub struct MaxOutputError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")]
+//pub struct MaxOutputError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl MaxOutputError {
+//    const MSG: &'static str = "MaxOutputError: your max output limiter isn't set to anything, prevent eventual splashdown and set a limit (yes.. it's mandatory)!";
+//
+//    pub fn new() -> MaxOutputError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-impl MaxOutputError {
-    const MSG: &'static str = "MaxOutputError: your max output limiter isn't set to anything, prevent eventual splashdown and set a limit (yes.. it's mandatory)!";
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct EmptyGpioError {
+//    msg: &'static str, 
+//    backtrace: Backtrace,
+//}
+//
+//impl EmptyGpioError {
+//    const MSG: &'static str = "EmptyGpio Error : the ~/.WaterPump/state-files/gpio.txt file does not contain a pin number to actuate";
+//
+//    pub fn new() -> EmptyGpioError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-    pub fn new() -> MaxOutputError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct TimeFormatError {
+//    msg: &'static str,
+//    backtrace: Backtrace, 
+//}
+//
+//impl TimeFormatError {
+//    const MSG: &'static str = "TimeFormat Error : there is a time entry with an incorrect format"; 
+//    
+//    pub fn new() -> TimeFormatError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct EmptyGpioError {
-    msg: &'static str, 
-    backtrace: Backtrace,
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct AmountFormatError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl AmountFormatError {
+//    const MSG: &'static str = "AmountFormat Error : an amount entry is formatted incorrectly!";
+//
+//    pub fn new() -> AmountFormatError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//} 
 
-impl EmptyGpioError {
-    const MSG: &'static str = "EmptyGpio Error : the ~/.WaterPump/state-files/gpio.txt file does not contain a pin number to actuate";
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct TimeBuilderError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl TimeBuilderError {
+//    const MSG: &'static str = "TimeBuilder Error : a time operation from chrono module failed to resolve properly";
+//
+//    pub fn new() -> TimeBuilderError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-    pub fn new() -> EmptyGpioError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct ConfigFormatError { 
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl ConfigFormatError {
+//    const MSG: &'static str = "ConfigFormat Error : the configuration file contains formatting errors";
+//
+//    pub fn new() -> ConfigFormatError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct TimeFormatError {
-    msg: &'static str,
-    backtrace: Backtrace, 
-}
-
-impl TimeFormatError {
-    const MSG: &'static str = "TimeFormat Error : there is a time entry with an incorrect format"; 
-    
-    pub fn new() -> TimeFormatError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct AmountFormatError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl AmountFormatError {
-    const MSG: &'static str = "AmountFormat Error : an amount entry is formatted incorrectly!";
-
-    pub fn new() -> AmountFormatError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-} 
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct TimeBuilderError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl TimeBuilderError {
-    const MSG: &'static str = "TimeBuilder Error : a time operation from chrono module failed to resolve properly";
-
-    pub fn new() -> TimeBuilderError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct ConfigFormatError { 
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl ConfigFormatError {
-    const MSG: &'static str = "ConfigFormat Error : the configuration file contains formatting errors";
-
-    pub fn new() -> ConfigFormatError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct EmptyConfigError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl EmptyConfigError {
-    const MSG: &'static str = "EmptyConfig Error : the configuration file is empty."; 
-
-    pub fn new() -> EmptyConfigError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-} 
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct EmptyConfigError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl EmptyConfigError {
+//    const MSG: &'static str = "EmptyConfig Error : the configuration file is empty."; 
+//
+//    pub fn new() -> EmptyConfigError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//} 
 
 #[derive(Debug, Error)]
 #[error("{msg}\nBacktrace:\n{backtrace}")] 
@@ -211,35 +211,35 @@ impl InvalidArgError {
     }
 } 
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct EntryFormatError { 
-    msg: &'static str,
-    backtrace: Backtrace,
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct EntryFormatError { 
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl EntryFormatError {
+//    const MSG: &'static str = "EntryFormat Error : an entry format error occurred check you entry formats.";
+//
+//    pub fn new() -> Self {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-impl EntryFormatError {
-    const MSG: &'static str = "EntryFormat Error : an entry format error occurred check you entry formats.";
-
-    pub fn new() -> Self {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct MultiplierFormatError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl MultiplierFormatError {
-    const MSG: &'static str = "MultiplierFormat Error : the multiplier format is incorrect!";
-
-    pub fn new() -> MultiplierFormatError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct MultiplierFormatError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl MultiplierFormatError {
+//    const MSG: &'static str = "MultiplierFormat Error : the multiplier format is incorrect!";
+//
+//    pub fn new() -> MultiplierFormatError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
 #[derive(Debug, Error)]
 #[error("{msg}\nBacktrace:\n{backtrace}")] 
@@ -256,32 +256,32 @@ impl MissingArgError {
     }
 }
 
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct EmptyMultiplierError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct EmptyMultiplierError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl EmptyMultiplierError {
+//    const MSG: &'static str = "EmptyMultiplier Error : the store file did not contain a multiplier. Please provide one!";
+//
+//    pub fn new() -> EmptyMultiplierError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
 
-impl EmptyMultiplierError {
-    const MSG: &'static str = "EmptyMultiplier Error : the store file did not contain a multiplier. Please provide one!";
-
-    pub fn new() -> EmptyMultiplierError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
-
-#[derive(Debug, Error)]
-#[error("{msg}\nBacktrace:\n{backtrace}")] 
-pub struct EmptyTimeZoneError {
-    msg: &'static str,
-    backtrace: Backtrace,
-}
-
-impl EmptyTimeZoneError {
-    const MSG: &'static str = "EmptyTimeZone Error : the timezone.txt file in the $HOME/.WaterPump/state-files dir is empty, please provide one through the cmdline option API.";
-
-    pub fn new() -> EmptyTimeZoneError {
-        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
-    }
-}
+//#[derive(Debug, Error)]
+//#[error("{msg}\nBacktrace:\n{backtrace}")] 
+//pub struct EmptyTimeZoneError {
+//    msg: &'static str,
+//    backtrace: Backtrace,
+//}
+//
+//impl EmptyTimeZoneError {
+//    const MSG: &'static str = "EmptyTimeZone Error : the timezone.txt file in the $HOME/.WaterPump/state-files dir is empty, please provide one through the cmdline option API.";
+//
+//    pub fn new() -> EmptyTimeZoneError {
+//        Self { msg: Self::MSG, backtrace: Backtrace::capture() }
+//    }
+//}
