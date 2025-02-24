@@ -1,10 +1,10 @@
 # switch
-Dependencies:
-    runtime:
-      - systemd
-      - systemd-anaylze
-    build:
-      - nightly rust
+    Dependencies:
+        runtime:
+          - systemd
+          - systemd-anaylze
+        build:
+          - nightly rust
     
     About:
 
@@ -12,7 +12,9 @@ Dependencies:
 
     Configuration:
         
-    if XDG_CONFIG_HOME is not set the program will return a NotPresent error. Since the program runs as root when executing it is important to ensure that XDG_CONFIG_HOME is set. Example:
+    if XDG_CONFIG_HOME is not set the program will return a NotPresent error. 
+    Since the program runs as root when executing it is important to ensure that 
+    XDG_CONFIG_HOME is set. Example:
 
     echo $XDG_CONFIG_HOME 
 
@@ -28,11 +30,13 @@ Dependencies:
 
     Building: 
     
-    this program must be built with nightly rust because I am using a feature from thiserror only available in nightly (look up error_generic_member_access for more info).
+    this program must be built with nightly rust because I am using a feature from thiserror 
+    only available in nightly (look up error_generic_member_access for more info).
 
     1: Install rust and nightly rust -- look it up if you don't know how
 
     2: build the project 
-    cargo build --release
+    
+        cargo build --release
 
     3: move the binary from the target dir into /usr/local/bin/. 
